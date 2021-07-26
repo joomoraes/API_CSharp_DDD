@@ -1,0 +1,9 @@
+C:\API\src\Api.Domain\bin\Debug\netcoreapp3.1\Domain.deps.json
+C:\API\src\Api.Domain\bin\Debug\netcoreapp3.1\Domain.dll
+C:\API\src\Api.Domain\bin\Debug\netcoreapp3.1\Domain.pdb
+C:\API\src\Api.Domain\obj\Debug\netcoreapp3.1\Domain.csprojAssemblyReference.cache
+C:\API\src\Api.Domain\obj\Debug\netcoreapp3.1\Domain.AssemblyInfoInputs.cache
+C:\API\src\Api.Domain\obj\Debug\netcoreapp3.1\Domain.AssemblyInfo.cs
+C:\API\src\Api.Domain\obj\Debug\netcoreapp3.1\Domain.csproj.CoreCompileInputs.cache
+C:\API\src\Api.Domain\obj\Debug\netcoreapp3.1\Domain.dll
+C:\API\src\Api.Domain\obj\Debug\netcoreapp3.1\Domain.pdb
