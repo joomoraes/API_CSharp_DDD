@@ -7,3 +7,9 @@ C:\API\src\Api.Data\obj\Debug\netcoreapp3.1\Data.AssemblyInfo.cs
 C:\API\src\Api.Data\obj\Debug\netcoreapp3.1\Data.csproj.CoreCompileInputs.cache
 C:\API\src\Api.Data\obj\Debug\netcoreapp3.1\Data.dll
 C:\API\src\Api.Data\obj\Debug\netcoreapp3.1\Data.pdb
+C:\API\src\Api.Data\bin\Debug\netcoreapp3.1\Data.runtimeconfig.json
+C:\API\src\Api.Data\bin\Debug\netcoreapp3.1\Data.runtimeconfig.dev.json
+C:\API\src\Api.Data\bin\Debug\netcoreapp3.1\Domain.dll
+C:\API\src\Api.Data\bin\Debug\netcoreapp3.1\Domain.pdb
+C:\API\src\Api.Data\obj\Debug\netcoreapp3.1\Data.csproj.CopyComplete
+C:\API\src\Api.Data\obj\Debug\netcoreapp3.1\Data.genruntimeconfig.cache
