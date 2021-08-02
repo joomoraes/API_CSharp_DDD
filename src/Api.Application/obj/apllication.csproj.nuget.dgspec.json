@@ -1,25 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\API\\src\\Api.Application\\apllication.csproj": {}
+    "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Application\\apllication.csproj": {}
   },
   "projects": {
-    "C:\\API\\src\\Api.Application\\apllication.csproj": {
+    "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Application\\apllication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\API\\src\\Api.Application\\apllication.csproj",
+        "projectUniqueName": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Application\\apllication.csproj",
         "projectName": "apllication",
-        "projectPath": "C:\\API\\src\\Api.Application\\apllication.csproj",
-        "packagesPath": "C:\\Users\\joao.alves\\.nuget\\packages\\",
-        "outputPath": "C:\\API\\src\\Api.Application\\obj\\",
+        "projectPath": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Application\\apllication.csproj",
+        "packagesPath": "C:\\Users\\pc01\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\joao.alves\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\pc01\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -33,14 +28,14 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\API\\src\\Api.CrossCutting\\CrossCutting.csproj": {
-                "projectPath": "C:\\API\\src\\Api.CrossCutting\\CrossCutting.csproj"
+              "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.CrossCutting\\CrossCutting.csproj": {
+                "projectPath": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.CrossCutting\\CrossCutting.csproj"
               },
-              "C:\\API\\src\\Api.Domain\\Domain.csproj": {
-                "projectPath": "C:\\API\\src\\Api.Domain\\Domain.csproj"
+              "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Domain\\Domain.csproj"
               },
-              "C:\\API\\src\\Api.Service\\Service.csproj": {
-                "projectPath": "C:\\API\\src\\Api.Service\\Service.csproj"
+              "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Service\\Service.csproj": {
+                "projectPath": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Service\\Service.csproj"
               }
             }
           }
@@ -82,26 +77,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\API\\src\\Api.CrossCutting\\CrossCutting.csproj": {
+    "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.CrossCutting\\CrossCutting.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\API\\src\\Api.CrossCutting\\CrossCutting.csproj",
+        "projectUniqueName": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.CrossCutting\\CrossCutting.csproj",
         "projectName": "CrossCutting",
-        "projectPath": "C:\\API\\src\\Api.CrossCutting\\CrossCutting.csproj",
-        "packagesPath": "C:\\Users\\joao.alves\\.nuget\\packages\\",
-        "outputPath": "C:\\API\\src\\Api.CrossCutting\\obj\\",
+        "projectPath": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.CrossCutting\\CrossCutting.csproj",
+        "packagesPath": "C:\\Users\\pc01\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.CrossCutting\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\joao.alves\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\pc01\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -115,14 +105,14 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\API\\src\\Api.Data\\Data.csproj": {
-                "projectPath": "C:\\API\\src\\Api.Data\\Data.csproj"
+              "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Data\\Data.csproj": {
+                "projectPath": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Data\\Data.csproj"
               },
-              "C:\\API\\src\\Api.Domain\\Domain.csproj": {
-                "projectPath": "C:\\API\\src\\Api.Domain\\Domain.csproj"
+              "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Domain\\Domain.csproj"
               },
-              "C:\\API\\src\\Api.Service\\Service.csproj": {
-                "projectPath": "C:\\API\\src\\Api.Service\\Service.csproj"
+              "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Service\\Service.csproj": {
+                "projectPath": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Service\\Service.csproj"
               }
             }
           }
@@ -137,6 +127,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[8.0.1, )"
@@ -157,26 +151,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\API\\src\\Api.Data\\Data.csproj": {
+    "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\API\\src\\Api.Data\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "C:\\API\\src\\Api.Data\\Data.csproj",
-        "packagesPath": "C:\\Users\\joao.alves\\.nuget\\packages\\",
-        "outputPath": "C:\\API\\src\\Api.Data\\obj\\",
+        "projectPath": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Data\\Data.csproj",
+        "packagesPath": "C:\\Users\\pc01\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Data\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\joao.alves\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\pc01\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -190,8 +179,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\API\\src\\Api.Domain\\Domain.csproj": {
-                "projectPath": "C:\\API\\src\\Api.Domain\\Domain.csproj"
+              "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Domain\\Domain.csproj"
               }
             }
           }
@@ -242,26 +231,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\API\\src\\Api.Domain\\Domain.csproj": {
+    "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\API\\src\\Api.Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\API\\src\\Api.Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\joao.alves\\.nuget\\packages\\",
-        "outputPath": "C:\\API\\src\\Api.Domain\\obj\\",
+        "projectPath": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\pc01\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\joao.alves\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\pc01\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -307,26 +291,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\API\\src\\Api.Service\\Service.csproj": {
+    "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Service\\Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\API\\src\\Api.Service\\Service.csproj",
+        "projectUniqueName": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Service\\Service.csproj",
         "projectName": "Service",
-        "projectPath": "C:\\API\\src\\Api.Service\\Service.csproj",
-        "packagesPath": "C:\\Users\\joao.alves\\.nuget\\packages\\",
-        "outputPath": "C:\\API\\src\\Api.Service\\obj\\",
+        "projectPath": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Service\\Service.csproj",
+        "packagesPath": "C:\\Users\\pc01\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Service\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\joao.alves\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\pc01\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -340,11 +319,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\API\\src\\Api.Data\\Data.csproj": {
-                "projectPath": "C:\\API\\src\\Api.Data\\Data.csproj"
+              "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Data\\Data.csproj": {
+                "projectPath": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Data\\Data.csproj"
               },
-              "C:\\API\\src\\Api.Domain\\Domain.csproj": {
-                "projectPath": "C:\\API\\src\\Api.Domain\\Domain.csproj"
+              "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\pc01\\Desktop\\API-ESTUDOS\\API_CSharp\\src\\Api.Domain\\Domain.csproj"
               }
             }
           }
@@ -358,6 +337,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -373,7 +358,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     }
