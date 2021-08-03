@@ -18,7 +18,7 @@ namespace Api.Data.Test
     public class DbTest : IDisposable
     {
         private string  dataBaseName = $"dbApiTest_{Guid.NewGuid().ToString().Replace("-", string.Empty)}";
-        public ServiceProvider serviceProvider {get; private set;}
+        public ServiceProvider ServiceProvider {get; private set;}
 
         public DbTest() 
         {
@@ -28,8 +28,8 @@ namespace Api.Data.Test
                 ServiceLifetime.Transient
             );
 
-            serviceProvider = serviceProvider.BuilderServicesProv();
-            using(var context = ServiceProvider.GetService<MyContext>())
+            ServiceProvider = serviceColllection.BuildServiceProvider();
+            using (var context = ServiceProvider.GetService<MyContext>())
             {
                 context.Database.EnsureCreated();
             }

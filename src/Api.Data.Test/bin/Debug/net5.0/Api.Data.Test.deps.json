@@ -11,6 +11,8 @@
           "CrossCutting": "1.0.0",
           "Data": "1.0.0",
           "Domain": "1.0.0",
+          "Faker.NETCore": "1.0.2",
+          "Microsoft.Extensions.DependencyInjection": "3.1.6",
           "Microsoft.NET.Test.Sdk": "16.7.1",
           "apllication": "1.0.0",
           "coverlet.collector": "1.3.0",
@@ -47,6 +49,22 @@
         }
       },
       "coverlet.collector/1.3.0": {},
+      "Faker.NETCore/1.0.2": {
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "runtime": {
+          "lib/netstandard1.6/Faker.NETCore.dll": {
+            "assemblyVersion": "1.0.1.0",
+            "fileVersion": "1.0.1.0"
+          }
+        },
+        "resources": {
+          "lib/netstandard1.6/de-DE/Faker.NETCore.resources.dll": {
+            "locale": "de-DE"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.6": {
         "dependencies": {
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.5.0"
@@ -1714,6 +1732,13 @@
       "sha512": "sha512-t8pnf5SX2ya0RX4vjoxsbhDMQCZJcpPun2neHKJ4FouMmObylo25FvoOydvf3Bl+l+IzWw7u2vjEeCBHnleB9g==",
       "path": "coverlet.collector/1.3.0",
       "hashPath": "coverlet.collector.1.3.0.nupkg.sha512"
+    },
+    "Faker.NETCore/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-teRWZFwtBSuMRo2jxB4/DfCo3nprjMtjb7tjBfhrnz+BPhQMivW9cVo06kLr4GAJjrCOvCNQ2sJckRwGvMmK0Q==",
+      "path": "faker.netcore/1.0.2",
+      "hashPath": "faker.netcore.1.0.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.6": {
       "type": "package",
