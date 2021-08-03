@@ -149,3 +149,5 @@ C:\Users\joao.alves\Desktop\API_ESTUDOS\API_CSharp\src\Api.Data.Test\bin\Debug\n
 C:\Users\joao.alves\Desktop\API_ESTUDOS\API_CSharp\src\Api.Data.Test\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\joao.alves\Desktop\API_ESTUDOS\API_CSharp\src\Api.Data.Test\bin\Debug\net5.0\apllication.dll
 C:\Users\joao.alves\Desktop\API_ESTUDOS\API_CSharp\src\Api.Data.Test\bin\Debug\net5.0\apllication.pdb
+c:\Users\joao.alves\Desktop\API_ESTUDOS\API_CSharp\src\Api.Data.Test\bin\Debug\net5.0\Faker.NETCore.dll
+c:\Users\joao.alves\Desktop\API_ESTUDOS\API_CSharp\src\Api.Data.Test\bin\Debug\net5.0\de-DE\Faker.NETCore.resources.dll

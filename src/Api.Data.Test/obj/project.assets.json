@@ -35,6 +35,23 @@
           "build/netstandard1.0/coverlet.collector.targets": {}
         }
       },
+      "Faker.NETCore/1.0.2": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0"
+        },
+        "compile": {
+          "lib/netstandard1.6/Faker.NETCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.6/Faker.NETCore.dll": {}
+        },
+        "resource": {
+          "lib/netstandard1.6/de-DE/Faker.NETCore.resources.dll": {
+            "locale": "de-DE"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.6": {
         "type": "package",
         "dependencies": {
@@ -2649,6 +2666,19 @@
         "coverlet-icon.png",
         "coverlet.collector.1.3.0.nupkg.sha512",
         "coverlet.collector.nuspec"
+      ]
+    },
+    "Faker.NETCore/1.0.2": {
+      "sha512": "teRWZFwtBSuMRo2jxB4/DfCo3nprjMtjb7tjBfhrnz+BPhQMivW9cVo06kLr4GAJjrCOvCNQ2sJckRwGvMmK0Q==",
+      "type": "package",
+      "path": "faker.netcore/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "faker.netcore.1.0.2.nupkg.sha512",
+        "faker.netcore.nuspec",
+        "lib/netstandard1.6/Faker.NETCore.dll",
+        "lib/netstandard1.6/de-DE/Faker.NETCore.resources.dll"
       ]
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.6": {
@@ -8242,6 +8272,8 @@
       "CrossCutting >= 1.0.0",
       "Data >= 1.0.0",
       "Domain >= 1.0.0",
+      "Faker.NETCore >= 1.0.2",
+      "Microsoft.Extensions.DependencyInjection >= 3.1.6",
       "Microsoft.NET.Test.Sdk >= 16.7.1",
       "apllication >= 1.0.0",
       "coverlet.collector >= 1.3.0",
@@ -8308,6 +8340,14 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "Faker.NETCore": {
+            "target": "Package",
+            "version": "[1.0.2, )"
+          },
+          "Microsoft.Extensions.DependencyInjection": {
+            "target": "Package",
+            "version": "[3.1.6, )"
+          },
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
             "version": "[16.7.1, )"
