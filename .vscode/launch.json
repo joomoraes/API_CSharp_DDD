@@ -23,7 +23,10 @@
                 "ASPNETCORE_ENVIRONMENT": "Development",
                 "DB_CONNECTION":"Server=DESKTOP-1DF7BFU;Initial Catalog=APIdb;MultipleActiveResultSets=true;User ID=sa;Password=lbr@2020",
                 "DATABASE": "SQLSERVER",
-                "MIGRATION" : "APLICAR"
+                "MIGRATION" : "APLICAR",
+                "Audience": "ExemploAudience",
+                "Issuer": "ExemploIssuer",
+                "Seconds": "280000"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"

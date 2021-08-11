@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Api.Data.Context;
+using Api.Data.Repository;
 using Api.Domain.Entities;
 using Api.Domain.Repository;
 using Microsoft.EntityFrameworkCore;

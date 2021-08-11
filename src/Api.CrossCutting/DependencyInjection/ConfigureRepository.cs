@@ -1,6 +1,7 @@
 using System;
 using Api.Data.Context;
 using Api.Data.Implementations;
+using Api.Data.Repository;
 using Api.Domain.Interfaces;
 using Api.Domain.Repository;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +11,7 @@ namespace Api.CrossCutting.DependencyInjection
 {
     public class ConfigureRepository
     {
-        public static void ConfigureDepenciesRepository(IServiceCollection serviceColletion) 
+        public static void ConfigureDependenciesRepository(IServiceCollection serviceColletion) 
         {
             serviceColletion.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
 
@@ -27,7 +28,7 @@ namespace Api.CrossCutting.DependencyInjection
             {
                 serviceColletion.AddDbContext<MyContext> (
                     //options => options.UseMySql ("Server=127.0.0.1;Port=3306;Database=dbAPI;Uid=root;Pwd=")
-                    options => options.UseMySql ("Server=DESKTOP-1DF7BFU;Initial Catalog=APIdb;MultipleActiveResultSets=true;User ID=sa;Password=lbr@2020")
+                    options => options.UseSqlServer ("Server=DESKTOP-1DF7BFU;Initial Catalog=APIdb;MultipleActiveResultSets=true;User ID=sa;Password=lbr@2020")
                 );
             }
         }

@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Api.Data.Context;
 using Api.Domain.Entities;
 using Api.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace Api.Data.Context
+namespace Api.Data.Repository
 {
     public class BaseRepository<T> : IRepository<T> where T : BaseEntity
     {
@@ -39,9 +40,11 @@ namespace Api.Data.Context
         {
             try
             {
-                if(item.Id == Guid.Empty) {
+                if (item.Id == Guid.Empty)
+                {
                     item.Id = Guid.NewGuid();
                 }
+
                 item.CreateAt = DateTime.UtcNow;
                 _dataset.Add(item);
 

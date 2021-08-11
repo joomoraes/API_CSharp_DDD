@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Application.Controllers
 {
-    //http://localhost:5000/api/users
+    //http://localhost:5000/api/Users
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
@@ -49,7 +49,12 @@ namespace Api.Application.Controllers
             }
             try
             {
-                return Ok(await _service.Get(id));
+                var result = await _service.Get(id);
+                if(result.Email == null && result.Name == null)
+                {
+                    return NotFound();
+                }
+                return Ok(result);
             }
             catch (ArgumentException e)
             {

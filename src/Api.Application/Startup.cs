@@ -1,42 +1,50 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Api.CrossCutting.DependencyInjection;
-using Api.CrossCutting.Mappings;
-using Api.Data.Context;
 using Api.Domain.Security;
-using AutoMapper;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Collections.Generic;
+using Api.CrossCutting.Mappings;
+using AutoMapper;
+using Api.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
-namespace apllication
+namespace application
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
+            _environment = environment;
         }
 
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment _environment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            if (_environment.IsEnvironment("Testing"))
+            {
+                Environment.SetEnvironmentVariable("DB_CONNECTION", "Server=DESKTOP-1DF7BFU;Initial Catalog=APIdb_Integration;MultipleActiveResultSets=true;User ID=sa;Password=lbr@2020");
+                Environment.SetEnvironmentVariable("DATABASE", "SQLSERVER");
+                Environment.SetEnvironmentVariable("MIGRATION", "APLICAR");
+                Environment.SetEnvironmentVariable("Audience", "ExemploAudience");
+                Environment.SetEnvironmentVariable("Issuer", "ExemploIssue");
+                Environment.SetEnvironmentVariable("Seconds", "28800");
+            }
+            services.AddControllers();
 
-            ConfigureService.ConfigureDepenciesService(services);
-            ConfigureRepository.ConfigureDepenciesRepository(services);
+            ConfigureService.ConfigureDependenciesService(services);
+            ConfigureRepository.ConfigureDependenciesRepository(services);
 
             var config = new AutoMapper.MapperConfiguration(cfg =>
             {
@@ -48,28 +56,62 @@ namespace apllication
             IMapper mapper = config.CreateMapper();
             services.AddSingleton(mapper);
 
-            services.AddControllers();
+            var signingConfigurations = new SigningConfigurations();
+            services.AddSingleton(signingConfigurations);
+
+            services.AddAuthentication(authOptions =>
+            {
+                authOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                authOptions.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(bearerOptions =>
+            {
+                var paramsValidation = bearerOptions.TokenValidationParameters;
+                paramsValidation.IssuerSigningKey = signingConfigurations.Key;
+                paramsValidation.ValidAudience = Environment.GetEnvironmentVariable("Audience");
+                paramsValidation.ValidIssuer = Environment.GetEnvironmentVariable("Issuer");
+
+                // Valida a assinatura de um token recebido
+                paramsValidation.ValidateIssuerSigningKey = true;
+
+                // Verifica se um token recebido ainda é válido
+                paramsValidation.ValidateLifetime = true;
+
+                // Tempo de tolerância para a expiração de um token (utilizado
+                // caso haja problemas de sincronismo de horário entre diferentes
+                // computadores envolvidos no processo de comunicação)
+                paramsValidation.ClockSkew = TimeSpan.Zero;
+            });
+
+            // Ativa o uso do token como forma de autorizar o acesso
+            // a recursos deste projeto
+            services.AddAuthorization(auth =>
+            {
+                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
+                    .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme‌​)
+                    .RequireAuthenticatedUser().Build());
+            });
+
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { 
-                    Title = "API C#",
-                    Description = "API Desenvolvida usando AspNet 3.1 com Arquitetura DDD",
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
                     Version = "v1",
-                    TermsOfService = new Uri("http://suporte.libereli.com.br"),
-                    Contact = new OpenApiContact 
+                    Title = "API AspNetCore 3.1",
+                    Description = "Arquitetura DDD",
+                    TermsOfService = new Uri("http://www.mfrinfo.com.br"),
+                    Contact = new OpenApiContact
                     {
-                        Name = "Joao Pedro A",
-                        Email = "joao.pedro@liberali.com.br",
-                        Url = new Uri("http://suporte.libereli.com.brr")
+                        Name = "Marcos Fabricio Rosa",
+                        Email = "mfr@mail.com",
+                        Url = new Uri("http://www.mfrinfo.com.br")
                     },
                     License = new OpenApiLicense
                     {
-                        Name = "Termos de Licença de Uso",
-                        Url = new Uri("http://suporte.libereli.com.br")
+                        Name = "Termo de Licença de Uso",
+                        Url = new Uri("http://www.mfrinfo.com.br")
                     }
-                 });
+                });
 
-                 //Colocar JWT no Swagger
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = "Entre com o Token JWT",
@@ -78,41 +120,16 @@ namespace apllication
                     Type = SecuritySchemeType.ApiKey
                 });
 
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement{
-                    { new OpenApiSecurityScheme { Reference = new OpenApiReference
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement {
                     {
-                        Id = "Bearer",
-                        Type = ReferenceType.SecurityScheme
-                    }}, new List<string>()}
+                        new OpenApiSecurityScheme {
+                            Reference = new OpenApiReference {
+                                Id = "Bearer",
+                                Type = ReferenceType.SecurityScheme
+                            }
+                        }, new List<string>()
+                    }
                 });
-            });
-            var signingConfigurations = new SigningConfigurations();
-            services.AddSingleton(signingConfigurations); //Instancia Unica
-
-            var tokenConfigurations = new TokenConfiguration();
-            new ConfigureFromConfigurationOptions<TokenConfiguration>(
-                Configuration.GetSection("TokenConfigurations"))
-                    .Configure(tokenConfigurations);
-            services.AddSingleton(tokenConfigurations);  //Instancia Unica
-
-            services.AddAuthentication(authOptions =>
-            {
-                authOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                authOptions.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(JwtBearerOptions => {
-                var paramsValidation = JwtBearerOptions.TokenValidationParameters;
-                paramsValidation.IssuerSigningKey = signingConfigurations.Key;
-                paramsValidation.ValidAudience = tokenConfigurations.Audience;
-                paramsValidation.ValidIssuer = tokenConfigurations.Issuer;
-                paramsValidation.ValidateIssuerSigningKey = true;
-                paramsValidation.ClockSkew = TimeSpan.Zero;
-            });
-
-            services.AddAuthorization(auth =>
-            {
-                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
-                .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
-                .RequireAuthenticatedUser().Build());
             });
         }
 
@@ -122,12 +139,14 @@ namespace apllication
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API com AspNetCore 3.1");
-                c.RoutePrefix = string.Empty;
-                });
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Curso de API com AspNetCore 3.1");
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseRouting();
 
@@ -138,12 +157,12 @@ namespace apllication
                 endpoints.MapControllers();
             });
 
-            if(Environment.GetEnvironmentVariable("MIGRATION").ToLower() == "APLICAR".ToLower())
+            if (Environment.GetEnvironmentVariable("MIGRATION").ToLower() == "APLICAR".ToLower())
             {
-                using(var service = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>()
+                using (var service = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>()
                                                             .CreateScope())
                 {
-                    using (var context = service.ServiceProvider.GetService<MyContext>()) 
+                    using (var context = service.ServiceProvider.GetService<MyContext>())
                     {
                         context.Database.Migrate();
                     }
