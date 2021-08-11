@@ -13,42 +13,39 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Api.Service.Services
 {
-    public class LoginService: ILoginService
+    public class LoginService : ILoginService
     {
         private IUserRepository _repository;
-
-        private SigningConfigurations _signingConfigurations;
-
-        private TokenConfiguration _tokenConfiguration;
-
-        private IConfiguration _configurations;
+        public SigningConfigurations _signingConfigurations;
+        private IConfiguration _configuration { get; }
 
         public LoginService(IUserRepository repository,
-        SigningConfigurations signingConfigurations,
-        TokenConfiguration tokenConfiguration,
-        IConfiguration configurations) 
+                            SigningConfigurations signingConfigurations,
+                            IConfiguration configuration)
         {
             _repository = repository;
             _signingConfigurations = signingConfigurations;
-            _tokenConfiguration = tokenConfiguration;
-            _configurations = configurations;
+            _configuration = configuration;
         }
 
         public async Task<object> FindByLogin(LoginDto user)
         {
-            var BaseUser = new UserEntity();
-            if(user != null && !string.IsNullOrWhiteSpace(user.Email)) 
+            var baseUser = new UserEntity();
+            if (user != null && !string.IsNullOrWhiteSpace(user.Email))
             {
-                BaseUser = await _repository.FindByLogin(user.Email);
-                if(BaseUser == null) 
+                baseUser = await _repository.FindByLogin(user.Email);
+                if (baseUser == null)
                 {
-                    return new {
+                    return new
+                    {
                         authenticated = false,
                         message = "Falha ao autenticar"
                     };
-                } else {
-                    var identity = new ClaimsIdentity(
-                        new GenericIdentity(BaseUser.Email),
+                }
+                else
+                {
+                    ClaimsIdentity identity = new ClaimsIdentity(
+                        new GenericIdentity(user.Email),
                         new[]
                         {
                             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
@@ -56,16 +53,17 @@ namespace Api.Service.Services
                         }
                     );
 
-                    DateTime createDate = DateTime.Now;
-                    DateTime experationDate = createDate + TimeSpan.FromSeconds(_tokenConfiguration.Seconds);
+                    DateTime createDate = DateTime.UtcNow;
+                    DateTime expirationDate = createDate + TimeSpan.FromSeconds(Convert.ToInt32(Environment.GetEnvironmentVariable("Seconds")));
 
                     var handler = new JwtSecurityTokenHandler();
-                    string token = CreateToken(identity, createDate, experationDate, handler);
-                    return SuccessObject(createDate, experationDate, token, BaseUser);
-
+                    string token = CreateToken(identity, createDate, expirationDate, handler);
+                    return SuccessObject(createDate, expirationDate, token, baseUser);
                 }
-            } else {
-                return new 
+            }
+            else
+            {
+                return new
                 {
                     authenticated = false,
                     message = "Falha ao autenticar"
@@ -73,14 +71,15 @@ namespace Api.Service.Services
             }
         }
 
-        private string CreateToken(ClaimsIdentity identity, DateTime createdDate, DateTime expirationDate, JwtSecurityTokenHandler handler)
+        private string CreateToken(ClaimsIdentity identity, DateTime createDate, DateTime expirationDate, JwtSecurityTokenHandler handler)
         {
-            var securityToken = handler.CreateToken(new SecurityTokenDescriptor {
-                Issuer = _tokenConfiguration.Issuer,
-                Audience = _tokenConfiguration.Audience,
+            var securityToken = handler.CreateToken(new SecurityTokenDescriptor
+            {
+                Issuer = Environment.GetEnvironmentVariable("Issuer"),
+                Audience = Environment.GetEnvironmentVariable("Audience"),
                 SigningCredentials = _signingConfigurations.SigningCredentials,
                 Subject = identity,
-                NotBefore = createdDate,
+                NotBefore = createDate,
                 Expires = expirationDate,
             });
 
@@ -88,18 +87,19 @@ namespace Api.Service.Services
             return token;
         }
 
-        private object SuccessObject(DateTime createdDate, DateTime expirationDate, string token, UserEntity user)
+        private object SuccessObject(DateTime createDate, DateTime expirationDate, string token, UserEntity user)
         {
-            return new 
+            return new
             {
                 authenticated = true,
-                created = createdDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                create = createDate.ToString("yyyy-MM-dd HH:mm:ss"),
                 expiration = expirationDate.ToString("yyyy-MM-dd HH:mm:ss"),
-                acessToken = token,
+                accessToken = token,
                 userName = user.Email,
                 name = user.Name,
-                message = "Usuário logado com sucesso"
+                message = "Usuário Logado com sucesso"
             };
         }
+
     }
 }
