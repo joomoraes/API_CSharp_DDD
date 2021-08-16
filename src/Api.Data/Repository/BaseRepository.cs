@@ -36,6 +36,10 @@ namespace Api.Data.Repository
             }
         }
 
+        public async Task<bool> ExistAsync(Guid id)
+        {
+            return await _dataset.AnyAsync(p => p.Id.Equals(id));
+        }
         public async Task<T> InsertAsync(T item)
         {
             try
@@ -59,9 +63,18 @@ namespace Api.Data.Repository
             return item;
         }
 
-        public async Task<bool> ExistsAsync(Guid id)
+        public async Task<T> SelectAsync(Guid id)
         {
-            return await _dataset.AnyAsync(p => p.Id.Equals(id));
+            try
+            {
+            return await _dataset.SingleOrDefaultAsync(p => p.Id.Equals(id));
+                
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
+            }
         }
 
         public async Task<IEnumerable<T>> SelectAsync()
@@ -99,18 +112,6 @@ namespace Api.Data.Repository
             return item;
         }
 
-        public async Task<T> SelectAsync(Guid id)
-        {
-            try
-            {
-            return await _dataset.SingleOrDefaultAsync(p => p.Id.Equals(id));
-                
-            }
-            catch (Exception ex)
-            {
-                
-                throw ex;
-            }
-        }
+        
     }
 }

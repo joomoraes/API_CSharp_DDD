@@ -43,7 +43,7 @@ namespace Api.Data.Test
                 Assert.Equal(_entity.Email, _registroAtualizado.Email);
                 Assert.Equal(_entity.Name, _registroAtualizado.Name);
 
-                var _registroExiste = await _repositorio.ExistsAsync(_registroAtualizado.Id);
+                var _registroExiste = await _repositorio.ExistAsync(_registroAtualizado.Id);
                 Assert.True(_registroExiste);
 
                 var _registroSelecionado = await _repositorio.SelectAsync(_registroAtualizado.Id);
