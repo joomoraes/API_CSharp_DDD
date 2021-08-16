@@ -39,7 +39,7 @@ namespace Api.Data.Test
         {
             using(var context = ServiceProvider.GetService<MyContext>())
             {
-                context.Database.EnsureCreated();
+                context.Database.EnsureDeleted();
             }
         }
     }
