@@ -27,5 +27,11 @@
     <ProjectReference Include="..\Api.Domain\Domain.csproj" />
     <ProjectReference Include="..\Api.Application\apllication.csproj" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="xunit.runner.json">
+      <CopyToOutputDirectory>Preserveewst</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 
 </Project>

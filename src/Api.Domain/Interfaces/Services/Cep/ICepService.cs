@@ -8,8 +8,8 @@ namespace Api.Domain.Interfaces.Services.Cep
     {
         Task<CepDto> Get(Guid id);
         Task<CepDto> Get(string cep);
-        Task<CepDtoCreateResult> Post(CepDtoCreateResult cep);
-        Task<CepDtoCreateResult> Put(CepDtoUpdate cep);
+        Task<CepDtoCreateResult> Post(CepDtoCreate cep);
+        Task<CepDtoUpdateResult> Put(CepDtoUpdate cep);
         Task<bool> Delete(Guid id);
     }
 }
