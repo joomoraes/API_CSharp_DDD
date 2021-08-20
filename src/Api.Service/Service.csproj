@@ -12,4 +12,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Update="xunit.runner.json">
+      <CopyToOutputDirectory>Preserveewst</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -1,7 +1,7 @@
 using System;
 using Api.Domain.Dtos.Uf;
 
-namespace Api.Domain.Municipios.Uf
+namespace Api.Domain.Municipios
 {
     public class MunicipioDtoCompleto
     {

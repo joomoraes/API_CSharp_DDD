@@ -1,6 +1,6 @@
 namespace Api.Domain.Models
 {
-    public class UfModel
+    public class UfModel: BaseModel
     {
         private string _sigla;
         public string Sigla

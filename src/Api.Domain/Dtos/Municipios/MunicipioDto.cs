@@ -1,6 +1,6 @@
 using System;
 
-namespace Api.Domain.Municipios.Uf
+namespace Api.Domain.Municipios
 {
     public class MunicipioDto
     {
