@@ -17,6 +17,10 @@ namespace Api.CrossCutting.DependencyInjection
 
             serviceColletion.AddScoped<IUserRepository, UserImplementation>();
 
+            serviceColletion.AddScoped<IUfRepository, UfImplementation>();
+            serviceColletion.AddScoped<IMunicipioRepository, MunicipioImplementation>();
+            serviceColletion.AddScoped<ICepRepository, CepImplementation>();
+
             if(Environment.GetEnvironmentVariable("DATABASE").ToLower() == "SQLSERVER".ToLower()) 
             {
                 serviceColletion.AddDbContext<MyContext> (
@@ -28,7 +32,7 @@ namespace Api.CrossCutting.DependencyInjection
             {
                 serviceColletion.AddDbContext<MyContext> (
                     //options => options.UseMySql ("Server=127.0.0.1;Port=3306;Database=dbAPI;Uid=root;Pwd=")
-                    options => options.UseSqlServer ("Server=DESKTOP-1DF7BFU;Initial Catalog=APIdb;MultipleActiveResultSets=true;User ID=sa;Password=lbr@2020")
+                    options => options.UseSqlServer ("Server=DESKTOP-1DF7BFU;Initial Catalog=APIdb_2;MultipleActiveResultSets=true;User ID=sa;Password=lbr@2020")
                 );
             }
         }
