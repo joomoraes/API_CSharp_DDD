@@ -26,7 +26,8 @@
                 "MIGRATION" : "APLICAR",
                 "Audience": "ExemploAudience",
                 "Issuer": "ExemploIssuer",
-                "Seconds": "280000"
+                "Seconds": "280000",
+                "timeout": "5600"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
